@@ -5,7 +5,9 @@ const locationSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
-    touristRating: Number
+    image: String,
+    touristRating: Number,
+    info: String
 })
 
 const Location = mongoose.model('Location', locationSchema)
