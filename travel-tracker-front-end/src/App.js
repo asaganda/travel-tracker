@@ -37,7 +37,7 @@ const App = () => {
   }
 
   const handleDelete = (deletedLocation) => {
-    axios.delete('http://localhost:3000/locations/' + deletedLocation.target.value)
+    axios.delete('http://localhost:3000/locations/' + deletedLocation._id)
     .then((response) => {
 
       let newLocations = locations.filter((location) => {
