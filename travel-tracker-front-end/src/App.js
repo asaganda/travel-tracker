@@ -58,13 +58,13 @@ useEffect(() => {
   return(
     <>
       <h1>Travel Destinations</h1>
-      {/* <Add handleCreate={handleCreate}/> */}
+      <Add handleCreate={handleCreate}/> 
       <div className="d-flex flex-wrap">
       {locations.map((location) => {
         return (
           <>
             <Location location={location}/>
-            {/* <Edit location={location} handleEdit={handleEdit}/> */}
+            <Edit location={location} handleEdit={handleEdit}/>
             <button onClick={()=>{handleDelete(location)}}>X</button>
           </>
         )
