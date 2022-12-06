@@ -56,7 +56,7 @@ useEffect(() => {
 
 
   return(
-    <>
+    <div class="container">
       <h1>Travel Destinations</h1>
       <Add handleCreate={handleCreate}/>
       <div className="d-flex flex-wrap">
@@ -70,7 +70,7 @@ useEffect(() => {
         )
       })}
       </div>
-    </>
+    </div>
   )
 }
 
