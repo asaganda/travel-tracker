@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
-const Edit = (props) => {
-    const [location, setLocation] = useState({...props.location})
+const Add = (props) => {
+    const [location, setLocation] = useState({name: '', image: '', touristRating: 0, info: ''})
 
     const handleChange = (event) => {
         setLocation({...location, [event.target.name]: event.target.value})
@@ -9,22 +9,31 @@ const Edit = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.handleEdit(location)
+        props.handleCreate(location)
     }
 
     return(
         <>
         <details>
-            <summary>Edit Location</summary>
+            <summary>Add Location</summary>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='name'>Name:</label>
-                <input type='text' name='name' onChange={handleChange} value={location.name}/>
-                <label htmlFor='rating'>Rating:</label>
-                <input type='text' name='info' onChange={handleChange} value={location.info}/>
-                <input type='submit'/>
-                <label htmlFor='info'>Info:</label>
-                <input type='text' name='info' onChange={handleChange} value={location.info}/>
-                <input type='submit'/>
+                <div class="form-group">
+                    <label htmlFor='name'>Name:</label>
+                    <input type='text' name='name' onChange={handleChange}/>
+                </div>
+                <div class="form-group">
+                    <label htmlFor='image'>Picture:</label>
+                    <input type='text' name='image' onChange={handleChange}/>
+                </div>
+                <div class="form-group">
+                    <label htmlFor='touristRating'>Rating:</label>
+                    <input type='range' class="custom-range" min="0" max="5" name='touristRating' onChange={handleChange}/>
+                </div>
+                <div class="form-group">
+                    <label htmlFor='info'>Info:</label>
+                    <textarea class="form-control" rows="3" type='text' name='info' onChange={handleChange}></textarea>
+                </div>
+                <input type='submit' class="btn btn-primary"/>
             </form>
         </details>
         </>
