@@ -14,7 +14,6 @@ const Add = (props) => {
 
     return(
         <>
-        <details>
             <summary>Add Location</summary>
             <form onSubmit={handleSubmit}>
                 <div class="form-group">
@@ -35,7 +34,6 @@ const Add = (props) => {
                 </div>
                 <input type='submit' class="btn btn-primary"/>
             </form>
-        </details>
         </>
     )
 }

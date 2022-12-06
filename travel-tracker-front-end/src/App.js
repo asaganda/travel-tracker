@@ -23,6 +23,7 @@ const App = () => {
       let newLocations = [...locations, response.data]
       setLocations(newLocations)
     })
+    setAddLocation(false)
   }
 
   const handleEdit = (data) => {
@@ -63,10 +64,13 @@ useEffect(() => {
   return(
     <div class="container">
       <h1>Travel Destinations</h1>
-      <button class="btn btn-warning" onClick={toggleAddLocation}></button>
+      <button class="btn btn-warning" onClick={toggleAddLocation}>Add Location</button>
+      <div>
       {
         addLocation ? <Add handleCreate={handleCreate}/> : null
       }
+      </div>
+      <br/>
       <div className="d-flex flex-wrap justify-content-around">
       {locations.map((location) => {
         return (
