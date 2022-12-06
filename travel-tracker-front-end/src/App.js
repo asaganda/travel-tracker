@@ -62,11 +62,11 @@ useEffect(() => {
       <div className="d-flex flex-wrap">
       {locations.map((location) => {
         return (
-          <>
+          <div className="location-item">
             <Location location={location}/>
             {/* <Edit location={location} handleEdit={handleEdit}/> */}
             <button onClick={()=>{handleDelete(location)}}>X</button>
-          </>
+          </div>
         )
       })}
       </div>
