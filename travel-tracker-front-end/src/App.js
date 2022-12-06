@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import './App.css'
 
-//import Location from './components/Location.js'
+import Location from './components/Location.js'
 //import Add from './components/Add.js'
 //import Edit from './components/Edit.js'
 
@@ -58,15 +59,17 @@ useEffect(() => {
     <>
       <h1>Travel Destinations</h1>
       {/* <Add handleCreate={handleCreate}/> */}
+      <div className="d-flex flex-wrap">
       {locations.map((location) => {
         return (
           <>
-            {/* <Location location={location}/>
-            <Edit location={location} handleEdit={handleEdit}/> */}
+            <Location location={location}/>
+            {/* <Edit location={location} handleEdit={handleEdit}/> */}
             <button onClick={()=>{handleDelete(location)}}>X</button>
           </>
         )
       })}
+      </div>
     </>
   )
 }
