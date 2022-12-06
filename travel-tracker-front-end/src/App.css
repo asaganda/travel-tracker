@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* Andrew css */
+.location-item {
+  width: 30%;
+}
+.card img {
+  height: 380px;
+  object-fit: cover;
+}
