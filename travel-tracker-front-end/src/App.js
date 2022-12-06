@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //import Location from './components/Location.js'
 //import Add from './components/Add.js'
-//import Edit from './components/Edit.js'
+import Edit from './components/Edit.js'
 
 const App = () => {
   const [locations, setLocations] = useState([])
