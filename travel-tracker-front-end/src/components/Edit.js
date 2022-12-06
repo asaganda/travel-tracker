@@ -26,8 +26,8 @@ const Edit = (props) => {
                     <input type='text' name='image' onChange={handleChange} value={location.image}/>
                 </div>
                 <div class="form-group">
-                    <label htmlFor='rating'>Rating:</label>
-                    <input type='range' class="custom-range" min="0" max="5" name='info' onChange={handleChange} value={location.info}/>
+                    <label htmlFor='touristRating'>Rating:</label>
+                    <input type='range' class="custom-range" min="0" max="5" name='touristRating' onChange={handleChange} value={location.touristRating}/>
                 </div>
                 <div class="form-group">
                     <label htmlFor='info'>Info:</label>
