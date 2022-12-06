@@ -8,6 +8,7 @@ import Edit from './components/Edit.js'
 
 const App = () => {
   const [locations, setLocations] = useState([])
+  const [addLocation, setAddLocation] = useState(false)
 
   const getLocations = () => {
     axios.get('http://localhost:3000/locations')
@@ -49,6 +50,10 @@ const App = () => {
     })
   }
 
+  const toggleAddLocation = () => {
+    setAddLocation(prev => !prev)
+  }
+
 useEffect(() => {
   getLocations()
 }, [])
@@ -58,7 +63,10 @@ useEffect(() => {
   return(
     <div class="container">
       <h1>Travel Destinations</h1>
-      <Add handleCreate={handleCreate}/> 
+      <button class="btn btn-warning" onClick={toggleAddLocation}></button>
+      {
+        addLocation ? <Add handleCreate={handleCreate}/> : null
+      }
       <div className="d-flex flex-wrap justify-content-around">
       {locations.map((location) => {
         return (
