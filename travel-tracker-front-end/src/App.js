@@ -1,25 +1,74 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Location from './components/Location.js'
+import Add from './components/Add.js'
+import Edit from './components/Edit.js'
+
+const App = () => {
+  const [locations, setLocations] = useState([])
+
+  const getLocations = () => {
+    axios.get('http://localhost:3000/locations')
+    .then((response) => setLocations(response.data))
+    .catch((error) => console.log(error))
+  }
+
+  const handleCreate = (data) => {
+    axios.post('http://localhost:3000/locations', data)
+    .then((response) => {
+      console.log(response)
+      let newLocations = [...locations, response.data]
+      setLocations(newLocations)
+    })
+  }
+
+  const handleEdit = (data) => {
+    axios.put('http://localhost:3000/locations/' + data._id, data)
+    .then((response) => {
+      console.log(response)
+
+      let newLocations = locations.map((location) => {
+        return location._id !== data._id ? location : data
+      })
+
+      setLocations(newLocations)
+    })
+  }
+
+  const handleDelete = (deletedLocation) => {
+    axios.delete('http://localhost:3000/locations/' + deletedLocation.target.value)
+    .then((response) => {
+
+      let newLocations = locations.filter((location) => {
+        return location._id !== deletedLocation._id
+      })
+
+      setLocations(newLocations)
+    })
+  }
+
+useEffect(() => {
+  getLocations()
+}, [])
+
+
+
+  return(
+    <>
+      <h1>Travel Destinations</h1>
+      <Add handleCreate={handleCreate}/>
+      {locations.map((location) => {
+        return (
+          <>
+            <Location location={location}/>
+            <Edit location={location} handleEdit={handleEdit}/>
+            <button onClick={()=>{handleDelete(location)}}>X</button>
+          </>
+        )
+      })}
+    </>
+  )
 }
 
-export default App;
+export default App
