@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-import Location from './components/Location.js'
-import Add from './components/Add.js'
-import Edit from './components/Edit.js'
+//import Location from './components/Location.js'
+//import Add from './components/Add.js'
+//import Edit from './components/Edit.js'
 
 const App = () => {
   const [locations, setLocations] = useState([])
@@ -57,12 +57,12 @@ useEffect(() => {
   return(
     <>
       <h1>Travel Destinations</h1>
-      <Add handleCreate={handleCreate}/>
+      {/* <Add handleCreate={handleCreate}/> */}
       {locations.map((location) => {
         return (
           <>
-            <Location location={location}/>
-            <Edit location={location} handleEdit={handleEdit}/>
+            {/* <Location location={location}/>
+            <Edit location={location} handleEdit={handleEdit}/> */}
             <button onClick={()=>{handleDelete(location)}}>X</button>
           </>
         )
