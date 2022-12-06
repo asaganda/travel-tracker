@@ -56,7 +56,7 @@ useEffect(() => {
 
 
   return(
-    <>
+    <div class="container">
       <h1>Travel Destinations</h1>
       <Add handleCreate={handleCreate}/> 
       <div className="d-flex flex-wrap justify-content-around">
@@ -65,12 +65,12 @@ useEffect(() => {
           <div className="location-item">
             <Location location={location}/>
             <Edit location={location} handleEdit={handleEdit}/>
-            <button onClick={()=>{handleDelete(location)}}>X</button>
+            <button class="btn btn-danger" onClick={()=>{handleDelete(location)}}>Delete</button>
           </div>
         )
       })}
       </div>
-    </>
+    </div>
   )
 }
 
