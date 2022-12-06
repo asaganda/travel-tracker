@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css'
 
 import Location from './components/Location.js'
-//import Add from './components/Add.js'
+import Add from './components/Add.js'
 import Edit from './components/Edit.js'
 
 const App = () => {
@@ -59,7 +59,7 @@ useEffect(() => {
     <>
       <h1>Travel Destinations</h1>
       <Add handleCreate={handleCreate}/> 
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap justify-content-around">
       {locations.map((location) => {
         return (
           <div className="location-item">

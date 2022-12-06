@@ -38,6 +38,10 @@
 }
 
 /* Andrew css */
-.card {
-  width: 35%;
+.location-item {
+  width: 30%;
+}
+.card img {
+  height: 380px;
+  object-fit: cover;
 }
