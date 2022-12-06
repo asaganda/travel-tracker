@@ -58,8 +58,8 @@ useEffect(() => {
   return(
     <div class="container">
       <h1>Travel Destinations</h1>
-      <Add handleCreate={handleCreate}/>
-      <div className="d-flex flex-wrap">
+      <Add handleCreate={handleCreate}/> 
+      <div className="d-flex flex-wrap justify-content-around">
       {locations.map((location) => {
         return (
           <div className="location-item">
