@@ -40,4 +40,4 @@ const Add = (props) => {
     )
 }
 
-export default Edit
+export default Add
